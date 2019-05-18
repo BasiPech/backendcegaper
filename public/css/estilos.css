@@ -1,0 +1,118 @@
+#login{
+    background-color: #F5F5F5;
+}
+#sendlogin{
+    background-color: #35B8A6;
+    border:none;
+    padding: 10px 40px;
+}
+
+.card-body{
+    text-align: center;
+}
+#login #logo{
+    padding: 5px;
+}
+
+#header {
+    height: 80px;	
+    background-color: #343A40;	
+    box-shadow: 9px 3px 13px 0 rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+}
+
+#logo{
+    text-align: center;
+}
+#logo img{
+    padding: 10px;
+}
+#backend{
+    text-align: center;
+}
+#backend p{
+    line-height: 20px;
+    padding-top: 15px;
+    color:#AAB2BE;
+    font-size: 20px;
+}
+#user{
+    text-align: right;
+}
+#user p{
+    padding-top: 10px;
+    color: #AAB2BE;
+   
+}
+
+#footer{	
+    background-color: #F6F6F6;
+    text-align: center;
+}
+
+#footer p{
+    color: #A1A1A1;	font-family: "Open Sans";	font-size: 13px;	line-height: NaNpx;
+    margin:0;
+    padding: 20px 0;
+}
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+ #pleca{	
+    border: 1px solid #979797;	
+    border-radius: 4px;	
+    background-color: #35B8A6;
+ }   
+
+
+ #pleca p{
+     padding: 10px 0;
+     color:#FFF;
+     font-size: 15px;
+     margin: 0 0 0 15px;
+ }
+
+ #table{
+     margin-top:15px;
+ }
+
+ #menu{
+    background-color: #F5F5F5;
+     max-height: 100%;
+ }
+
+ #menu ul {
+     padding: 5px 6px;
+     margin: 10px 5px;
+     list-style: none; 
+}
+
+ #menu ul li{
+     color: #000;	font-family: "Open Sans";	font-size: 14px;
+     
+ }
+
+ #menu ul li a{
+    color: #5D666F;
+    margin-left: 15px;	
+ }
+
+ #dest{
+     float: right;
+     border: 1px solid #979797;	border-radius: 4px;	background-color: #35B8A6;
+     margin-bottom: 15px;
+ }
+
+ table .btn-info{
+    border: 1px solid #979797;	border-radius: 4px;	background-color: #35B8A6;
+ }
