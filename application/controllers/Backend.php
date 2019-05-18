@@ -30,7 +30,7 @@ class Backend extends CI_Controller {
 			$this->load->helper('url_helper');
 			$this->load->model('traslados_model');
 			$this->load->model('admin_model');
-			
+			$this->session->userdata('datos_admin');
 			
 	}
 
@@ -38,18 +38,31 @@ class Backend extends CI_Controller {
 
 	public function login()
 	{
-		$data=array();
-
-		if(!empty($_POST)) 
-		{
-			$data['datos']= $this->admin_model->get_admin();
-
-			$this->load->view('login', $data);
+			$data=array();
+			if($this->session->userdata('datos_admin'))
+			{
+				redirect('excursionesRoo');
+			}
+			else
+			{
+				if(!empty($_POST)) 
+				{
+				$datosusuario= $this->admin_model->get_admin();
+				$this->session->set_userdata('datos_admin', $datosusuario);
+				$this->load->view('login', $data);
+				}	
 			
-		}
+			}
 		
 		$this->load->view('login', $data);
 	}
+
+	public function test()
+	{
+		print_r( $this->session->datos_admin->nombre);
+		
+
+;	}
 
 	public function trasladosroo()
 	{
@@ -62,7 +75,7 @@ class Backend extends CI_Controller {
 
 	public function excursionesroo()
 	{
-		
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
 		$data['traslados']= $this->traslados_model->get_excursionesRoo();
 		$this->load->view('header');
 		$this->load->view('menu');
@@ -72,9 +85,8 @@ class Backend extends CI_Controller {
 	
 	public function logout()
 	{
-		$this->load->view('header');
-		$this->load->view('menu');
-		$this->load->view('excursionesroo');
-		$this->load->view('footer');
+		
+		$this->session->unset_userdata('datos_admin');
+		
 	}
 }

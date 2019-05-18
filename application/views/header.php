@@ -24,7 +24,7 @@
                     <p> <b>BACKEND</b> <br> Sistema administrador de recursos</p>
                 </div>
                 <div id="user" class="col-3">
-                    <p>Hola <b>Manuel Arriaga </b><br> <a href="<?php echo base_url()?>logout">cerrar sesion</a></p>
+                    <p>Hola <b><?php echo $this->session->datos_admin->nombre;?></b><br> <a href="<?php echo base_url()?>logout">cerrar sesion</a></p>
                 </div>
             </div>
         </div>

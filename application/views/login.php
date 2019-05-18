@@ -12,9 +12,7 @@
   </head>
   <body id="login"> 
 
-  <?php 
-  print_r($datos);
-  ?>
+
 <!-- no additional media querie or css is required -->
     <div class="container">
         <div class="row justify-content-center align-items-center" style="height:100vh">
@@ -22,12 +20,12 @@
                 <div class="card">
                     <div class="card-body">
                         <img id="logo" src="<?php echo base_url()?>public/images/LOGO-HOME.png">
-                        <form action="<?php echo base_url()?>/login" autocomplete="off" method="post">
+                        <form action="<?php echo base_url()?>login" autocomplete="off" method="post">
                             <div class="form-group">
-                                <input placeholder="correo "type="text" class="form-control" name="username" required>
+                                <input placeholder="correo "type="email" class="form-control" name="username" value="<?php @$_POST["username"]?>" required>
                             </div>
                             <div class="form-group">
-                                <input placeholder="password" type="password" class="form-control" name="password" required>
+                                <input placeholder="password" type="password" class="form-control" name="password" value="<?php @$_POST["password"]?>" required>
                             </div>
                             <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
                         </form>
