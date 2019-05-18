@@ -19,10 +19,13 @@ class Backend extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
+	public $administrador;
+
 	public function __construct()
 	{
 			parent::__construct();
 			$this->load->database();
+			$this->load->library('session');
 			$this->load->library('encryption');
 			$this->load->helper('url_helper');
 			$this->load->model('traslados_model');
@@ -35,7 +38,17 @@ class Backend extends CI_Controller {
 
 	public function login()
 	{
-		$this->load->view('login');
+		$data=array();
+
+		if(!empty($_POST)) 
+		{
+			$data['datos']= $this->admin_model->get_admin();
+
+			$this->load->view('login', $data);
+			
+		}
+		
+		$this->load->view('login', $data);
 	}
 
 	public function trasladosroo()

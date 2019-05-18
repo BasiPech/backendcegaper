@@ -19,8 +19,8 @@
                         <td><?php echo $row->nombre;?></td>
                         <td><?php echo $row->nombre_del_destino;?></td>
                         <td class="text-center">
-                            <a class='btn btn-info btn-xs' href="#"> <span class="glyphicon glyphicon-edit"></span>Tarifas</a>
-                            <a class='btn btn-info btn-xs' href="#"> <span class="glyphicon glyphicon-edit"></span>Editar</a> 
+                
+                            <a class='btn btn-info btn-xs' href="#"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
                             <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Eliminar</a>
                         </td>
                     </tr>

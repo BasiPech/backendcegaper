@@ -10,7 +10,7 @@ class Traslados_model extends CI_Model {
         {
 
                 
-            $sql='select * from zona B 
+            $sql='select  C.id as id ,nombre_del_destino,  B.nombre as nombre from zona B 
             inner join destino A on A.id_zona =B.id 
             inner join tarifas C on C.id_destino = A.id
             inner join categorias_traslados D  on D.id = A.id_categorias_traslados
