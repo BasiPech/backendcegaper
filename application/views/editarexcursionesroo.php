@@ -3,26 +3,29 @@
                 <table class="table table-striped custab">
                     <thead>
                     
-                        <a id="dest" href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModal"><b>+</b> Agregar destino</a>
+                        <a id="dest" href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#exampleModal"><b>+</b> Agregar tarifa</a>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre de la zona</th>
-                            <th>Nombre del destino</th>
+                            <th>Pax</th>
+                            <th>Tarifas</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
+                    <?php if($traslados):?>
                     <?php foreach($traslados->result() as $row): ?>
                     <tr>
                         <td><?php echo $row->id;?></td>
-                        <td><?php echo $row->nombre;?></td>
-                        <td><?php echo $row->nombre_del_destino;?></td>
+                        <td><?php echo $row->descripcion;?></td>
+                        <td><?php echo $row->precio;?></td>
                         <td class="text-center">
                 
-                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarExcursionRoo/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
+                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarTarifa/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>editar tarifa</a> 
                             <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span>Eliminar</a>
                         </td>
                     </tr>
+                    
                     <?php endforeach;?>
+                    <?php endif?>
                 </table>
             </div>
         </div>

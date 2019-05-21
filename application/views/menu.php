@@ -2,7 +2,7 @@
     <div id="plecas" class="container">
         <div class="row">
             <div id="pleca" class="offset-md-2 col-md-10 ">
-                <p>Listado de excursiones por zona </p>
+                <p><?php echo $title?> <?php echo @$destino->nombre_del_destino?> </p>
             </div>
         </div>
     </div>

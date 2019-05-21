@@ -49,7 +49,8 @@ class Backend extends CI_Controller {
 				{
 				$datosusuario= $this->admin_model->get_admin();
 				$this->session->set_userdata('datos_admin', $datosusuario);
-				$this->load->view('login', $data);
+				redirect('excursionesRoo');
+				
 				}	
 			
 			}
@@ -57,13 +58,14 @@ class Backend extends CI_Controller {
 		$this->load->view('login', $data);
 	}
 
-	public function test()
+
+	public function GuardarZona ()
 	{
-		print_r( $this->session->datos_admin->nombre);
 		
+		print_r($_POST);
+	}
 
-;	}
-
+	
 	public function trasladosroo()
 	{
 	
@@ -76,10 +78,24 @@ class Backend extends CI_Controller {
 	public function excursionesroo()
 	{
 		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+
+		$data['title']= "Listado de excursiones por zona";
 		$data['traslados']= $this->traslados_model->get_excursionesRoo();
-		$this->load->view('header');
+		$this->load->view('header',$data);
 		$this->load->view('menu');
 		$this->load->view('excursionesroo', $data);
+		$this->load->view('footer');
+	}
+
+	public function editarExcursionRoo(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		
+		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
+		$data['title']= "Agregar o editar tarifas para la excursion";
+		$data['destino']= $this->traslados_model->get_destino();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('editarexcursionesroo', $data);
 		$this->load->view('footer');
 	}
 	
@@ -87,6 +103,7 @@ class Backend extends CI_Controller {
 	{
 		
 		$this->session->unset_userdata('datos_admin');
+		redirect('login');
 		
 	}
 }
