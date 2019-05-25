@@ -134,26 +134,7 @@ class Traslados_model extends CI_Model {
 
 
         
-        /*edita*/
-        public function get_destino(){
-            if($this->uri->segment(3))
-            {
-                $id=$this->uri->segment(3);
-                $sql='select  * from destino  WHERE  id='.$id.'';
-                $query= $this->db->query($sql);
-                if ($query->num_rows() > 0)
-                {
-                    foreach ($query->result() as $row)
-                    {
-                        return  $row;   
-                    }
-                }
-            }
-            else{
-                redirect('excursionesRoo');
-            }
-
-        }
+        
 
         
 
@@ -167,7 +148,7 @@ class Traslados_model extends CI_Model {
 
         
         
-        
+        /*funcion general*/
         public function get_tarifasTraslados()
         {
             if($this->uri->segment(3))
@@ -188,6 +169,26 @@ class Traslados_model extends CI_Model {
             }
         }
 
+         /*funcion general*/
+        public function get_destino(){
+            if($this->uri->segment(3))
+            {
+                $id=$this->uri->segment(3);
+                $sql='select  * from destino  WHERE  id='.$id.'';
+                $query= $this->db->query($sql);
+                if ($query->num_rows() > 0)
+                {
+                    foreach ($query->result() as $row)
+                    {
+                        return  $row;   
+                    }
+                }
+            }
+            else{
+                redirect('excursionesRoo');
+            }
+
+        }
         
 
 /* funciones para tarifas de traslafos o excursiones*/

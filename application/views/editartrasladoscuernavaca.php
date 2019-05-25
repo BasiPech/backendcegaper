@@ -52,7 +52,7 @@
             <label for="tarifa">Tarifa</label>
             <input name="precio" type="number" step="any"  class="form-control" required>
             <input type="hidden" name="id_destino" value="<?php echo $this->uri->segment(3);?>">
-            <input type="hidden" name="url_edicion" value="editarTrasladoRoo">
+            <input type="hidden" name="url_edicion" value="editarTrasladoCuernavaca">
         </div>        
       </div>
       <div class="modal-footer">

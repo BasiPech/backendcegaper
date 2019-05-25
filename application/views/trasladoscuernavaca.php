@@ -19,7 +19,7 @@
                         <td><?php echo $row->nombre;?></td>
                         <td><?php echo $row->nombre_del_destino;?></td>
                         <td class="text-center">
-                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarTrasladoRoo/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
+                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarTrasladoCuernavaca/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
                             <a href="<?php echo base_url()?>backend/delDestino/<?php echo $row->id;?>" class="btn btn-danger btn-xs delDestino" rel="<?php echo $row->nombre_del_destino;?>" data-toggle="modal" data-target="#delExcursionRoo"><span class="glyphicon glyphicon-remove "></span>Eliminar</a>
                         </td>
                     </tr>
@@ -46,7 +46,7 @@
         <div class="form-group">
             <label for="zona">Zona</label>
             <select name="id_zona" class="form-control">
-            <option value="1">Q.Roo</option>
+            <option value="2">Cuernavaca</option>
             </select>
         </div>
         <div class="form-group">
@@ -58,7 +58,7 @@
         <div class="form-group">
             <label for="exampleInputEmail1">Nombre del destino</label>
             <input name="nombre_del_destino" type="text" class="form-control" required>
-            <input type="hidden" name="url_edicion" value="editarTrasladosRoo">
+            <input type="hidden" name="url_edicion" value="editarTrasladoCuernavaca">
 
         </div>         
       </div>

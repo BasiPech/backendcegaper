@@ -129,6 +129,31 @@ class Backend extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	/*pantalla editar tarifas traslados */
+	public function editarTrasladoCuernavaca(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
+		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
+		$data['title']= "Agregar o editar tarifas para el traslado";
+		$data['destino']= $this->traslados_model->get_destino();
+		$data['pax']= $this->traslados_model->get_catalogopax();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('editartrasladoscuernavaca', $data);
+		$this->load->view('footer');
+	}
+	/*pantalla editar tarifas excursiones */
+	public function editarExcursionCuernavaca(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
+		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
+		$data['title']= "Agregar o editar tarifas para la excursion";
+		$data['destino']= $this->traslados_model->get_destino();
+		$data['pax']= $this->traslados_model->get_catalogopax();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('editarexcursionescuernavaca', $data);
+		$this->load->view('footer');
+	}
+
 	/*funciones para editar taridas de la excursion o traslado*/
 	public function nuevaTarifa ()
 	{
