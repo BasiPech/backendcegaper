@@ -57,6 +57,9 @@ $route['logout'] = 'backend/logout';
 $route['trasladosRoo'] = 'backend/trasladosroo';
 $route['excursionesRoo'] = 'backend/excursionesroo';
 
+$route['trasladosCuernavaca'] = 'backend/trasladoscuernava';
+$route['excursionesCuernavaca'] = 'backend/excursionescuernava';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
