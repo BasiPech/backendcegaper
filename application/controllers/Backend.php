@@ -35,31 +35,6 @@ class Backend extends CI_Controller {
 	}
 
 
-
-	
-
-
-	public function nuevoDestino ()
-	{	
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->set_destino();
-
-	}
-
-	public function nuevaTarifa ()
-	{
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->set_tarifa();
-
-	}
-
-	public function editaTarifaAjax ()
-	{
-	if(!@$this->session->userdata('datos_admin')) redirect ('login');
-    $this->traslados_model->edita_tarifa();
-	
-	}
-
 	 /*home traslados*/
 	public function trasladosroo()
 	{
@@ -84,7 +59,22 @@ class Backend extends CI_Controller {
 		$this->load->view('excursionesroo', $data);
 		$this->load->view('footer');
 	}
-	/*boton editar */
+
+	/* funcion generica del home agrega nueva tarifa al excursion o traslado*/
+	public function nuevoDestino ()
+	{	
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_destino();
+	}
+	
+	/* funcion generica del home elimina excursion o traslado*/
+	public function delDestino(){
+	if(!@$this->session->userdata('datos_admin')) redirect ('login');
+	$this->traslados_model->delDestino();
+	}
+	
+
+	/*pantalla editar tarifas traslados */
 	public function editarTrasladoRoo(){
 		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
 		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
@@ -93,10 +83,10 @@ class Backend extends CI_Controller {
 		$data['pax']= $this->traslados_model->get_catalogopax();
 		$this->load->view('header',$data);
 		$this->load->view('menu');
-		$this->load->view('editarexcursionesroo', $data);
+		$this->load->view('editartrasladosroo', $data);
 		$this->load->view('footer');
 	}
-	/*boton editar */
+	/*pantalla editar tarifas excursiones */
 	public function editarExcursionRoo(){
 		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
 		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
@@ -109,22 +99,35 @@ class Backend extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	/*funciones para editar taridas de la excursion o traslado*/
+	public function nuevaTarifa ()
+	{
+		/* funcion generica solo necesita el id y la nueva tarifa enviada con js*/
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_tarifa();
+
+	}
+
+	public function editaTarifaAjax ()
+	{
+	if(!@$this->session->userdata('datos_admin')) redirect ('login');
+	$this->traslados_model->edita_tarifa();
+	}
 
 	
+	
 
-
-
-
-	public function delDestino(){
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->delDestino();
-	}
+	
 
 	public function delTarifa(){
 		if(!@$this->session->userdata('datos_admin')) redirect ('login');
 		$this->traslados_model->delTarifa();
 	}
 	
+
+
+	/*funciones generales de la interface*/
+
 	public function logout()
 	{
 		

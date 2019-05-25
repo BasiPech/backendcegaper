@@ -23,20 +23,13 @@ $(document).ready(function() {
        urlsite= $(this).attr('href');
 
     })
-
-
     
-
     $('#cambiaPrecio').click(function(){
-
-
          var nuevaTarifa =$('#nuevaTarifa').val(); 
         if(nuevaTarifa && urlsite !=""){
-            
             jQuery.get(urlsite,{ nuevaTarifa: nuevaTarifa}, function(data) {
                 location.reload();
             });
-    
         }
         else{
             alert("ingrese un numero ")

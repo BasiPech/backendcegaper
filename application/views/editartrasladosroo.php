@@ -18,7 +18,6 @@
                         <td><?php echo $row->descripcion;?></td>
                         <td>$<?php echo $row->precio;?></td>
                         <td class="text-center">
-                
                             <a class='btn btn-info btn-xs btn-tarifa'  href="<?php echo base_url()?>backend/editaTarifaAjax/<?php echo $row->id;?>" rel="<?php echo $row->precio;?>" data-toggle="modal" data-target="#editaTarifa"> <span class="glyphicon glyphicon-edit"></span>edita tarifa</a> 
                             <a href="<?php echo base_url()?>backend/delTarifa/<?php echo $row->id;?>" class="btn btn-danger btn-xs delTarifa" data-toggle="modal" data-target="#delTarifa" rel="<?php echo $row->precio;?>" ><span class="glyphicon glyphicon-remove"></span>Eliminar</a> 
                         </td>
@@ -29,7 +28,6 @@
             </div>
         </div>
     </div>
-
 <!-- Modal -->
 <div class="modal fade" id="agregarTarifa" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -54,6 +52,7 @@
             <label for="tarifa">Tarifa</label>
             <input name="precio" type="number" step="any"  class="form-control" required>
             <input type="hidden" name="id_destino" value="<?php echo $this->uri->segment(3);?>">
+            <input type="hidden" name="url_edicion" value="editarTrasladoRoo">
         </div>        
       </div>
       <div class="modal-footer">
