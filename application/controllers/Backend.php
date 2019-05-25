@@ -59,10 +59,26 @@ class Backend extends CI_Controller {
 	}
 
 
-	public function GuardarZona ()
+	public function nuevoDestino ()
 	{
 		
-		print_r($_POST);
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_destino();
+
+	}
+
+	public function nuevaTarifa ()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_tarifa();
+
+	}
+
+	public function editaTarifaAjax ()
+	{
+	if(!@$this->session->userdata('datos_admin')) redirect ('login');
+    $this->traslados_model->edita_tarifa();
+	
 	}
 
 	
@@ -93,10 +109,21 @@ class Backend extends CI_Controller {
 		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
 		$data['title']= "Agregar o editar tarifas para la excursion";
 		$data['destino']= $this->traslados_model->get_destino();
+		$data['pax']= $this->traslados_model->get_catalogopax();
 		$this->load->view('header',$data);
 		$this->load->view('menu');
 		$this->load->view('editarexcursionesroo', $data);
 		$this->load->view('footer');
+	}
+
+	public function delDestino(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->delDestino();
+	}
+
+	public function delTarifa(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->delTarifa();
 	}
 	
 	public function logout()
