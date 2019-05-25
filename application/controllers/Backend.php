@@ -36,6 +36,103 @@ class Backend extends CI_Controller {
 
 
 
+	
+
+
+	public function nuevoDestino ()
+	{	
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_destino();
+
+	}
+
+	public function nuevaTarifa ()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->set_tarifa();
+
+	}
+
+	public function editaTarifaAjax ()
+	{
+	if(!@$this->session->userdata('datos_admin')) redirect ('login');
+    $this->traslados_model->edita_tarifa();
+	
+	}
+
+	 /*home traslados*/
+	public function trasladosroo()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+
+		$data['title']= "Listado de traslados por zona";
+		$data['traslados']= $this->traslados_model->get_trasladosRoo();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('trasladosroo', $data);
+		$this->load->view('footer');
+	}
+	 /*home traslados*/
+	public function excursionesRoo()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+
+		$data['title']= "Listado de excursiones por zona";
+		$data['traslados']= $this->traslados_model->get_excursionesRoo();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('excursionesroo', $data);
+		$this->load->view('footer');
+	}
+	/*boton editar */
+	public function editarTrasladoRoo(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
+		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
+		$data['title']= "Agregar o editar tarifas para el traslado";
+		$data['destino']= $this->traslados_model->get_destino();
+		$data['pax']= $this->traslados_model->get_catalogopax();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('editarexcursionesroo', $data);
+		$this->load->view('footer');
+	}
+	/*boton editar */
+	public function editarExcursionRoo(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');	
+		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
+		$data['title']= "Agregar o editar tarifas para la excursion";
+		$data['destino']= $this->traslados_model->get_destino();
+		$data['pax']= $this->traslados_model->get_catalogopax();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('editarexcursionesroo', $data);
+		$this->load->view('footer');
+	}
+
+
+	
+
+
+
+
+	public function delDestino(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->delDestino();
+	}
+
+	public function delTarifa(){
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+		$this->traslados_model->delTarifa();
+	}
+	
+	public function logout()
+	{
+		
+		$this->session->unset_userdata('datos_admin');
+		redirect('login');
+		
+	}
+
 	public function login()
 	{
 			$data=array();
@@ -56,81 +153,5 @@ class Backend extends CI_Controller {
 			}
 		
 		$this->load->view('login', $data);
-	}
-
-
-	public function nuevoDestino ()
-	{
-		
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->set_destino();
-
-	}
-
-	public function nuevaTarifa ()
-	{
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->set_tarifa();
-
-	}
-
-	public function editaTarifaAjax ()
-	{
-	if(!@$this->session->userdata('datos_admin')) redirect ('login');
-    $this->traslados_model->edita_tarifa();
-	
-	}
-
-	
-	public function trasladosroo()
-	{
-	
-		$this->load->view('header');
-		$this->load->view('menu');
-		$this->load->view('excursionesroo');
-		$this->load->view('footer');
-	}
-
-	public function excursionesroo()
-	{
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-
-		$data['title']= "Listado de excursiones por zona";
-		$data['traslados']= $this->traslados_model->get_excursionesRoo();
-		$this->load->view('header',$data);
-		$this->load->view('menu');
-		$this->load->view('excursionesroo', $data);
-		$this->load->view('footer');
-	}
-
-	public function editarExcursionRoo(){
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		
-		$data['traslados']= $this->traslados_model->get_tarifasTraslados();
-		$data['title']= "Agregar o editar tarifas para la excursion";
-		$data['destino']= $this->traslados_model->get_destino();
-		$data['pax']= $this->traslados_model->get_catalogopax();
-		$this->load->view('header',$data);
-		$this->load->view('menu');
-		$this->load->view('editarexcursionesroo', $data);
-		$this->load->view('footer');
-	}
-
-	public function delDestino(){
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->delDestino();
-	}
-
-	public function delTarifa(){
-		if(!@$this->session->userdata('datos_admin')) redirect ('login');
-		$this->traslados_model->delTarifa();
-	}
-	
-	public function logout()
-	{
-		
-		$this->session->unset_userdata('datos_admin');
-		redirect('login');
-		
 	}
 }

@@ -12,7 +12,7 @@
             <div id="menu" class="col-2">
                 <ul>
                     <li>Quintana Roo</li>
-                    <li><a href="<?php echo base_url()?>">Traslados</a></li>
+                    <li><a href="<?php echo base_url()?>trasladosRoo">Traslados</a></li>
                     <li><a href="<?php echo base_url()?>excursionesRoo">Excursiones</a></li>
                 </ul>
 

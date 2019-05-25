@@ -52,7 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'backend/login';
 $route['login'] = 'backend/login';
 $route['logout'] = 'backend/logout';
+
+
 $route['trasladosRoo'] = 'backend/trasladosroo';
 $route['excursionesRoo'] = 'backend/excursionesroo';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

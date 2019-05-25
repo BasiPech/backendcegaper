@@ -17,8 +17,7 @@
                         <td><?php echo $row->nombre;?></td>
                         <td><?php echo $row->nombre_del_destino;?></td>
                         <td class="text-center">
-                
-                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarExcursionRoo/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
+                            <a class='btn btn-info btn-xs' href="<?php echo base_url()?>backend/editarTrasladoRoo/<?php echo $row->id;?>"> <span class="glyphicon glyphicon-edit"></span>Editar o agregar tarifas</a> 
                             <a href="<?php echo base_url()?>backend/delDestino/<?php echo $row->id;?>" class="btn btn-danger btn-xs delDestino" rel="<?php echo $row->nombre_del_destino;?>" data-toggle="modal" data-target="#delExcursionRoo"><span class="glyphicon glyphicon-remove "></span>Eliminar</a>
                         </td>
                     </tr>
@@ -33,7 +32,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar zona de la excursion</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar zona del traslado</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -49,13 +48,14 @@
         <div class="form-group">
             <label for="tipo-traslado">Tipo de traslado</label>
             <select name="id_categorias_traslados" class="form-control">
-            <option value="2">Traslado - excursión</option>
+            <option value="1">Traslado - hotel</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Nombre de la excursion</label>
+            <label for="exampleInputEmail1">Nombre del destino</label>
             <input name="nombre_del_destino" type="text" class="form-control" required>
-            <input type="hidden" name="url_edicion" value="editarExcursionRoo">
+            <input type="hidden" name="url_edicion" value="editarTrasladosRoo">
+
         </div>         
       </div>
       <div class="modal-footer">
