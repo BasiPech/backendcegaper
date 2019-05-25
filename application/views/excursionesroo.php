@@ -11,6 +11,7 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
+                    <?php if($traslados):?>
                     <?php foreach($traslados->result() as $row): ?>
                     <tr>
                         <td><?php echo $row->id;?></td>
@@ -23,6 +24,7 @@
                         </td>
                     </tr>
                     <?php endforeach;?>
+                    <?php endif;?>
                 </table>
             </div>
         </div>

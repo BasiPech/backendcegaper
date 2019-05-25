@@ -16,7 +16,7 @@ class Traslados_model extends CI_Model {
             $sql='select A.id,  A.nombre_del_destino, C.nombre from destino A
             inner join categorias_traslados B on B.id =A.id_categorias_traslados
             inner join zona C on C.id = A.id_zona
-            WHERE  B.id=2 AND A.activo =1';
+            WHERE  B.id=2 AND A.activo =1 AND C.id =1';
             $query= $this->db->query($sql);
            
             if ($query->num_rows() > 0)
@@ -34,7 +34,7 @@ class Traslados_model extends CI_Model {
             $sql='select A.id,  A.nombre_del_destino, C.nombre from destino A
             inner join categorias_traslados B on B.id =A.id_categorias_traslados
             inner join zona C on C.id = A.id_zona
-            WHERE  B.id=1 AND A.activo =1';
+            WHERE  B.id=1 AND A.activo =1 AND C.id =1';
             $query= $this->db->query($sql);
            
             if ($query->num_rows() > 0)
@@ -45,7 +45,53 @@ class Traslados_model extends CI_Model {
         }
         
 
+         /* home trasalados y tours */
+         public function get_excursionesCuernavaca()
+         {
+                 
+             $sql='select A.id,  A.nombre_del_destino, C.nombre from destino A
+             inner join categorias_traslados B on B.id =A.id_categorias_traslados
+             inner join zona C on C.id = A.id_zona
+             WHERE  B.id=2 AND A.activo =1 AND C.id =2';
+             $query= $this->db->query($sql);
+            
+             if ($query->num_rows() > 0)
+             {
+                 return  $query;    
+             }
+ 
+         }
+ 
+         
+ 
+         public function get_trasladosCuernavaca()
+         {
+                 
+             $sql='select A.id,  A.nombre_del_destino, C.nombre from destino A
+             inner join categorias_traslados B on B.id =A.id_categorias_traslados
+             inner join zona C on C.id = A.id_zona
+             WHERE  B.id=1 AND A.activo =1 AND C.id =2';
+             $query= $this->db->query($sql);
+            
+             if ($query->num_rows() > 0)
+             {
+                 return  $query;    
+             }
+ 
+         }
+
         
+
+         /*funcion general*/
+        public function delDestino(){
+            $id= $this->uri->segment(3);
+            $data = array(
+                'activo'  => 0
+            );
+            $this->db->where('id', $id);
+            $this->db->update('destino', $data);
+        }
+
        
 
         public function edita_tarifa(){
@@ -59,23 +105,6 @@ class Traslados_model extends CI_Model {
             
         }
 
-        /*funcion general*/
-        public function delDestino(){
-            $id= $this->uri->segment(3);
-            $data = array(
-                'activo'  => 0
-            );
-            $this->db->where('id', $id);
-            $this->db->update('destino', $data);
-        }
-
-        public function delTarifa(){
-            $id= $this->uri->segment(3);
-            $this->db->where('id', $id);
-            $this->db->delete('tarifas');
-        }
-
-        
 
         /* funcion generica*/
         public function set_destino(){
@@ -98,7 +127,14 @@ class Traslados_model extends CI_Model {
 
             }
         }
+
+
+
+
+
+
         
+        /*edita*/
         public function get_destino(){
             if($this->uri->segment(3))
             {
@@ -119,6 +155,19 @@ class Traslados_model extends CI_Model {
 
         }
 
+        
+
+        public function delTarifa(){
+            $id= $this->uri->segment(3);
+            $this->db->where('id', $id);
+            $this->db->delete('tarifas');
+        }
+
+        
+
+        
+        
+        
         public function get_tarifasTraslados()
         {
             if($this->uri->segment(3))

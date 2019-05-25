@@ -54,11 +54,11 @@ $route['login'] = 'backend/login';
 $route['logout'] = 'backend/logout';
 
 
-$route['trasladosRoo'] = 'backend/trasladosroo';
-$route['excursionesRoo'] = 'backend/excursionesroo';
+$route['trasladosRoo'] = 'backend/trasladosRoo';
+$route['excursionesRoo'] = 'backend/excursionesRoo';
 
-$route['trasladosCuernavaca'] = 'backend/trasladoscuernava';
-$route['excursionesCuernavaca'] = 'backend/excursionescuernava';
+$route['trasladosCuernavaca'] = 'backend/trasladosCuernavaca';
+$route['excursionesCuernavaca'] = 'backend/excursionesCuernavaca';
 
 
 $route['404_override'] = '';

@@ -36,7 +36,7 @@ class Backend extends CI_Controller {
 
 
 	 /*home traslados*/
-	public function trasladosroo()
+	public function trasladosRoo()
 	{
 		if(!@$this->session->userdata('datos_admin')) redirect ('login');
 
@@ -59,6 +59,36 @@ class Backend extends CI_Controller {
 		$this->load->view('excursionesroo', $data);
 		$this->load->view('footer');
 	}
+
+	/*home traslados*/
+	public function trasladosCuernavaca()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+
+		$data['title']= "Listado de traslados por zona";
+		$data['traslados']= $this->traslados_model->get_trasladosCuernavaca();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('trasladoscuernavaca', $data);
+		$this->load->view('footer');
+	}
+	 /*home traslados*/
+	public function excursionesCuernavaca()
+	{
+		if(!@$this->session->userdata('datos_admin')) redirect ('login');
+
+		$data['title']= "Listado de excursiones por zona";
+		$data['traslados']= $this->traslados_model->get_excursionesCuernavaca();
+		$this->load->view('header',$data);
+		$this->load->view('menu');
+		$this->load->view('excursionescuernavaca', $data);
+		$this->load->view('footer');
+	}
+
+
+	
+
+
 
 	/* funcion generica del home agrega nueva tarifa al excursion o traslado*/
 	public function nuevoDestino ()

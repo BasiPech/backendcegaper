@@ -15,10 +15,9 @@
                     <li><a href="<?php echo base_url()?>trasladosRoo">Traslados</a></li>
                     <li><a href="<?php echo base_url()?>excursionesRoo">Excursiones</a></li>
                 </ul>
-
                 <ul>
                     <li>Cuernavaca</li>
-                    <li><a href="<?php echo base_url()?>">Traslados</a></li>
-                    <li><a href="<?php echo base_url()?>">Excursiones</a></li>
+                    <li><a href="<?php echo base_url()?>trasladosCuernavaca">Traslados</a></li>
+                    <li><a href="<?php echo base_url()?>excursionesCuernavaca">Excursiones</a></li>
                 </ul>
             </div>

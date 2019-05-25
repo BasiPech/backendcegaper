@@ -11,6 +11,8 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
+
+                    <?php if($traslados):?>
                     <?php foreach($traslados->result() as $row): ?>
                     <tr>
                         <td><?php echo $row->id;?></td>
@@ -21,7 +23,9 @@
                             <a href="<?php echo base_url()?>backend/delDestino/<?php echo $row->id;?>" class="btn btn-danger btn-xs delDestino" rel="<?php echo $row->nombre_del_destino;?>" data-toggle="modal" data-target="#delExcursionRoo"><span class="glyphicon glyphicon-remove "></span>Eliminar</a>
                         </td>
                     </tr>
+                    
                     <?php endforeach;?>
+                    <?php endif;?>
                 </table>
             </div>
         </div>
