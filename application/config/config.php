@@ -28,7 +28,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost:8888' || $_SERVER['HTTP_HOST'] == 'localh
 	$config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/backend.cegaper.com';
 }else
 {
-	$config['base_url'] = 'http:// backend.cegaper.com/';
+	$config['base_url'] = 'http://backend.cegaper.com/';
 }
 
 
